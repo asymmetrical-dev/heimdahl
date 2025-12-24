@@ -95,11 +95,47 @@ function initAnimations() {
 }
 
 // Contact Form
-function initContactForms() {
+async function initContactForms() {
     const form = document.querySelector('.contact-form');
-    form?.addEventListener('submit', (e) => {
+    const btn = document.getElementById('submit-btn');
+    
+    form?.addEventListener('submit', async (e) => {
         e.preventDefault();
-        alert('Thank you for your interest in Heimdahl. Our team will contact you shortly.');
-        form.reset();
+        
+        if (btn) {
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+        }
+
+        const formData = new FormData(form);
+        
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                alert('Thank you! Your message has been sent to the Heimdahl team.');
+                form.reset();
+            } else {
+                const data = await response.json();
+                if (data.errors) {
+                    alert(data.errors.map(error => error.message).join(", "));
+                } else {
+                    alert('Oops! There was a problem submitting your form.');
+                }
+            }
+        } catch (error) {
+            alert('Oops! There was a problem connecting to the server.');
+        } finally {
+            if (btn) {
+                btn.disabled = false;
+                btn.textContent = 'Send Message';
+            }
+        }
     });
 }

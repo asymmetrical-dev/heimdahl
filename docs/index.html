@@ -241,20 +241,20 @@
                         <p><i class="fas fa-location-dot"></i> Monument, CO</p>
                     </div>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" action="https://formspree.io/f/xvgzljww" method="POST">
                     <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <input type="text" placeholder="First Name" required>
-                        <input type="text" placeholder="Last Name" required>
+                        <input type="text" name="first_name" placeholder="First Name" required>
+                        <input type="text" name="last_name" placeholder="Last Name" required>
                     </div>
-                    <input type="email" placeholder="Work Email" required style="width: 100%; margin: 1rem 0;">
-                    <select style="width: 100%; margin-bottom: 1rem; padding: 0.75rem; border-radius: 6px; border: 1px solid #D1D5DB;">
+                    <input type="email" name="email" placeholder="Work Email" required style="width: 100%; margin: 1rem 0;">
+                    <select name="interest" style="width: 100%; margin-bottom: 1rem; padding: 0.75rem; border-radius: 6px; border: 1px solid #D1D5DB;">
                         <option value="">Interest Area</option>
                         <option value="auto">Automotive OEM</option>
                         <option value="arvr">AR/VR Hardware</option>
                         <option value="invest">Investor Relations</option>
                     </select>
-                    <textarea placeholder="Message" style="width: 100%; height: 120px; margin-bottom: 1rem;"></textarea>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    <textarea name="message" placeholder="Message" style="width: 100%; height: 120px; margin-bottom: 1rem;"></textarea>
+                    <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">Send Message</button>
                 </form>
             </div>
         </div>
