@@ -241,15 +241,18 @@
                         <p><i class="fas fa-location-dot"></i> Monument, CO</p>
                     </div>
                 </div>
-                <form class="contact-form" action="https://formsubmit.co/contact@heimdahl.tech" method="POST">
+                <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Web3Forms Config -->
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    <input type="hidden" name="subject" value="New Heimdahl Website Inquiry">
+                    <input type="hidden" name="from_name" value="Heimdahl Web Form">
+                    
                     <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                         <input type="text" name="first_name" placeholder="First Name" required>
                         <input type="text" name="last_name" placeholder="Last Name" required>
                     </div>
                     <input type="email" name="email" placeholder="Work Email" required style="width: 100%; margin: 1rem 0;">
-                    <!-- Hidden Config for FormSubmit -->
-                    <input type="hidden" name="_subject" value="New Heimdahl Contact Inquiry">
-                    <input type="hidden" name="_template" value="table">
+                    
                     <select name="interest" style="width: 100%; margin-bottom: 1rem; padding: 0.75rem; border-radius: 6px; border: 1px solid #D1D5DB;">
                         <option value="">Interest Area</option>
                         <option value="auto">Automotive OEM</option>
