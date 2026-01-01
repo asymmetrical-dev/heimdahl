@@ -239,12 +239,6 @@ p {
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-.gallery-item.large {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    align-items: center;
-}
-
 .gallery-image {
     width: 100%;
     line-height: 0;
@@ -257,19 +251,19 @@ p {
 }
 
 .gallery-info {
-    padding: 3rem;
+    padding: 2rem;
 }
 
 .gallery-info h3 {
     color: #0F172A;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
 }
 
 .gallery-info p {
     color: #64748B;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 .gallery-grid {
@@ -278,30 +272,20 @@ p {
     gap: 2rem;
 }
 
-.gallery-grid .gallery-item {
-    display: flex;
-    flex-direction: column;
+/* Feature Grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
-.gallery-grid .gallery-info {
-    padding: 2rem;
-}
-
-.gallery-grid .gallery-info h3 {
-    font-size: 1.4rem;
-}
-
-.gallery-grid .gallery-info p {
-    font-size: 0.95rem;
-}
-
-@media (max-width: 968px) {
-    .gallery-item.large {
-        grid-template-columns: 1fr;
-    }
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
+.element {
+    background: #F8FAFC;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #0F172A;
+    border: 1px solid #E2E8F0;
 }
 
 /* App Cards */
@@ -342,22 +326,28 @@ p {
     font-weight: bold;
 }
 
-/* IP Section */
-.ip-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
+/* IP Card Style for Market */
 .ip-card {
     background: #0F172A;
     color: white;
     padding: 3rem;
     border-radius: 24px;
+    transition: transform 0.3s ease;
 }
 
-.ip-card h3 { color: #1359EE; margin-bottom: 1.5rem; }
-.ip-card p { color: #94A3B8; }
+.ip-card:hover {
+    transform: scale(1.02);
+}
+
+.ip-card h4 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.ip-card p {
+    color: #94A3B8;
+    margin-bottom: 0;
+}
 
 /* Contact Section */
 .contact-content {
@@ -375,7 +365,7 @@ p {
     border: 1px solid #F1F5F9;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input, .contact-form textarea, .contact-form select {
     padding: 1rem;
     border: 1px solid #E2E8F0;
     border-radius: 8px;
@@ -393,10 +383,13 @@ p {
 
 /* Responsive */
 @media (max-width: 968px) {
-    .hero-container, .demo-container, .app-card, .contact-content, .ip-grid {
-        grid-template-columns: 1fr;
+    .hero-container, .app-card, .contact-content, .market-grid {
+        grid-template-columns: 1fr !important;
         gap: 3rem;
     }
     .hero-title { font-size: 3rem; }
     .nav-menu { display: none; }
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
 }
